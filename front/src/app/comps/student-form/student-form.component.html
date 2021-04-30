@@ -1,0 +1,33 @@
+
+<div>
+<form [formGroup]="fgregister">
+Name:<input type="text" placeholder="Enter name" formControlName="name">
+phone:<input type="text" placeholder="Enter phone" formControlName="phone">
+email:<input type="email" placeholder="Enter email" formControlName="email">
+password:<input type="password" placeholder="Enter password" formControlName="password" ><br><br>
+ID:<input type="text"  class="form-control" placeholder="Enter ID" formControlName="id" readonly>
+<button type="submit" (click)="submit()">register</button>
+<button type="button" (click)="update()">Update</button>
+</form>
+</div>
+<div>
+<table border="1px solid black">
+<thead>
+<tr>
+<th>name</th>
+<th>phone</th>
+<th>email</th>  
+<th>password</th> 
+<th>Actions</th>     
+</tr> 
+</thead>
+<tr *ngFor="let info of data;let i=index">
+<td>{{info.name}}</td>    
+<td>{{info.phone}}</td>
+<td>{{info.email}}</td>
+<td>{{info.password}}</td>
+<td><button type="button" (click)="edit(i)">Edit</button>
+<button type="button" (click)="delete(i,info._id)">Delete</button></td>
+</tr> 
+</table>    
+</div>
